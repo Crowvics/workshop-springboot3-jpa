@@ -3,10 +3,19 @@ package com.victorluz.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-//Serializable serve para que o objeto trafegue na rede, seja gravado em arquivos, etc
-public class User implements Serializable{
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
+public class User implements Serializable{ //Serializable serve para trafegar os objetos na rede
 	private static final long serialVersionUID = 1L;
 	
+	@Id //id vai ser a chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //id vai ser incrementado automatico pelo BD
 	private long id;
 	private String name;
 	private String email;

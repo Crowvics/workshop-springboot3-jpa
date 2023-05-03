@@ -16,7 +16,7 @@ public class User implements Serializable{ //Serializable serve para trafegar os
 	
 	@Id //id vai ser a chave primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //id vai ser incrementado automatico pelo BD
-	private long id;
+	private Long id;
 	private String name;
 	private String email;
 	private String phone;
@@ -26,7 +26,11 @@ public class User implements Serializable{ //Serializable serve para trafegar os
 		
 	}
 
-	public User(long id, String name, String email, String phone, String password) {
+	
+	
+
+
+	public User(Long id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,6 +38,10 @@ public class User implements Serializable{ //Serializable serve para trafegar os
 		this.phone = phone;
 		this.password = password;
 	}
+
+
+
+
 
 	public long getId() {
 		return id;

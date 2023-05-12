@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +23,9 @@ public class Order implements Serializable{
 	@Id //id vai ser a chave primária
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //id vai ser incrementado automatico pelo BD
 	private Long id;
-	private Instant moment; //Instante Classe que é melhor que usar Date
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH-mm:ss'Z'", timezone = "GMT")
+	private Instant moment; //Instant Classe que é melhor que usar Date
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id")
